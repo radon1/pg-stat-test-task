@@ -2,7 +2,6 @@ package repositories
 
 import (
 	"github.com/jackc/pgx/v4/pgxpool"
-
 	"github.com/radon1/pg-stat-test-task/internal/repositories/pgstat"
 )
 

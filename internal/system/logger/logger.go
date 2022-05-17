@@ -2,9 +2,8 @@ package logger
 
 import (
 	"fmt"
-	"os"
-
 	"github.com/rs/zerolog"
+	"os"
 )
 
 func New(logLevel string) (*zerolog.Logger, error) {
@@ -12,10 +11,7 @@ func New(logLevel string) (*zerolog.Logger, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to parse zerolog level: %w", err)
 	}
-	//??
-	zerolog.TimeFieldFormat = zerolog.TimeFormatUnixMs
-	//здесь тоже
-	zeroLogger := zerolog.New(os.Stdout)
+	zeroLogger := zerolog.New(zerolog.ConsoleWriter{Out: os.Stdout, TimeFormat: zerolog.TimeFormatUnixMs})
 	zeroLogger.Level(level)
 
 	return &zeroLogger, nil

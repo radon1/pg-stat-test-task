@@ -17,7 +17,7 @@ type repository struct {
 	pool *pgxpool.Pool
 }
 
-func NewRepository(pool *pgxpool.Pool) Repository {
+func NewRepository(pool *pgxpool.Pool) *repository {
 	return &repository{
 		pool: pool,
 	}
